@@ -1,1 +1,460 @@
-# christine-portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christine Nicole Quiapo | Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #6C5CE7;
+            --secondary-color: #a29bfe;
+            --dark-color: #2D3436;
+            --light-color: #F9F9FB;
+            --text-color: #636E72;
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        .header-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header-container p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-contact {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-contact:hover {
+            background: white;
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            border-radius: 2px;
+        }
+
+        .about-text {
+            color: var(--text-color);
+            font-size: 1.05rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: #EEEEF6;
+            color: var(--dark-color);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .project-card {
+            border-left: 4px solid var(--primary-color);
+            background: var(--light-color);
+            padding: 1.5rem;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+            margin-bottom: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .project-platform {
+            font-size: 0.8rem;
+            background: var(--secondary-color);
+            color: white;
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-weight: bold;
+        }
+
+        .project-desc {
+            color: var(--text-color);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .btn-view {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .btn-view:hover {
+            color: var(--dark-color);
+        }
+
+        .timeline-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #ECECEC;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 0.3rem;
+        }
+
+        .role-title {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .timeline-date {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .company-name {
+            color: var(--text-color);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.95rem;
+            color: var(--text-color);
+            padding-left: 1rem;
+        }
+
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .ref-card {
+            background: var(--light-color);
+            padding: 1.2rem;
+            border-radius: var(--border-radius);
+        }
+
+        .ref-name {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .ref-title, .ref-company {
+            font-size: 0.85rem;
+            color: var(--text-color);
+        }
+
+        .ref-phone {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-color);
+            font-size: 0.85rem;
+        }
+
+        @media(max-width: 600px) {
+            header {
+                padding: 2.5rem 1rem;
+            }
+            .header-container h1 {
+                font-size: 1.8rem;
+            }
+            section {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <h1>Christine Nicole R. Quiapo</h1>
+            <p>UI/UX Designer & Information Systems Graduate</p>
+            <div class="contact-links">
+                <a href="mailto:christineretuertoquiapo@gmail.com" class="btn-contact">📧 Email Me</a>
+                <a href="tel:09323320836" class="btn-contact">📱 09323320836</a>
+                <a href="https://linkedin.com" target="_blank" class="btn-contact">🌐 LinkedIn</a>
+                <a href="https://github.com" target="_blank" class="btn-contact">💻 GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>About Me</h2>
+            <p class="about-text">
+                [span_0](start_span)I am a dedicated and motivated individual with a degree in Bachelor of Science in Information Systems (BSIS)[span_0](end_span). [span_1](start_span)While I may not have prior corporate work experience, I am eager to learn and apply my knowledge in real-world situations[span_1](end_span). [span_2](start_span)I am passionate about technology and committed to developing the skills necessary to excel in the field[span_2](end_span). [span_3](start_span)My proactive attitude and willingness to take on challenges make me a quick learner and a valuable team player[span_3](end_span).
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Design & Layout</h3>
+                    <div class="skill-tags">
+                        <span class="tag">UI/UX Design</span>
+                        <span class="tag">Figma</span>
+                        <span class="tag">Canva</span>
+                        <span class="tag">Website Layouts</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="tag">HTML / CSS</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">GoDaddy Builder</span>
+                        <span class="tag">ServiceNow</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Core Competencies</h3>
+                    <div class="skill-tags">
+                        <span class="tag">Computer Literate</span>
+                        <span class="tag">Data Encoding</span>
+                        <span class="tag">Adaptability</span>
+                        <span class="tag">Presentation Creation</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Featured Projects</h2>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">UI/UX Prototype Web Platform</div>
+                    <span class="project-platform">Figma</span>
+                </div>
+                [span_4](start_span)<p class="project-desc">Collaborated within a 3-member team for the University of Cebu Banilad UI/UX Competition[span_4](end_span). [span_5](start_span)Structured comprehensive prototype interface blueprints including dedicated platform registration layouts, functional sign-up mechanisms, and personalized logo designs[span_5](end_span).</p>
+                <a href="https://www.figma.com" target="_blank" class="btn-view">View Interactive Prototype &rarr;</a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Medical Distribution Web Management</div>
+                    <span class="project-platform">HTML, CSS & JS</span>
+                </div>
+                [span_6](start_span)<p class="project-desc">Refreshed structural web content, updated functional tracking channels for specialized medical systems hardware, maintained global corporate distributor directory lists, and published dynamic upcoming event bulletins[span_6](end_span).</p>
+                <a href="https://github.com" target="_blank" class="btn-view">View Code Repository &rarr;</a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">ServiceNow Training Application Interfaces</div>
+                    <span class="project-platform">ServiceNow</span>
+                </div>
+                [span_7](start_span)<p class="project-desc">Engineered interactive cloud infrastructure modules inside the ServiceNow environment during an intense enterprise software bootcamp managed by ROCOCO Global Technologies[span_7](end_span). [span_8](start_span)Developed isolated navigational controls and administration portals tailored for system education operators[span_8](end_span).</p>
+                <a href="https://www.servicenow.com" target="_blank" class="btn-view">View Case Summary &rarr;</a>
+            </div>
+
+            <div class="project-card">
+                <div class="project-header">
+                    <div class="project-title">Dynamic Lead Forms & Branding Layouts</div>
+                    <span class="project-platform">GoDaddy & Figma</span>
+                </div>
+                [span_9](start_span)<p class="project-desc">Designed active data collection surveys using Figma and constructed live public marketing asset designs using GoDaddy web builders during my technical internship under Open Office Freelancing[span_9](end_span).</p>
+                <a href="https://www.canva.com" target="_blank" class="btn-view">View Design Portfolio &rarr;</a>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="role-title">Administrative Operations Assistant</span>
+                    <span class="timeline-date">Alain Asia Group of Companies</span>
+                </div>
+                <p class="company-name">Data Processing & Audit</p>
+                <ul class="timeline-desc">
+                    [span_10](start_span)<li>Managed accurate ledger data input processes handling complex consumer information profiles[span_10](end_span).</li>
+                    [span_11](start_span)<li>Executed detailed tracking audits to accurately identify closed and legacy accounts[span_11](end_span).</li>
+                    [span_12](start_span)<li>Validated real-time technical system deployment tickets using standard CSP frameworks[span_12](end_span).</li>
+                </ul>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="role-title">Freelance Virtual Assistant</span>
+                    <span class="timeline-date">Apr 2022 - Mar 2024</span>
+                </div>
+                <p class="company-name">Upwork Global Marketplace</p>
+                <ul class="timeline-desc">
+                    [span_13](start_span)<li>Polished complex administrative briefs and refined structural documentation parameters[span_13](end_span).</li>
+                    [span_14](start_span)<li>Built engaging, strategic visual slide programs for executive board syncs and client briefings[span_14](end_span).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="role-title">Bachelor of Science in Information Systems</span>
+                    <span class="timeline-date">Graduated 2026</span>
+                </div>
+                <p class="company-name">University of Cebu Banilad</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-header">
+                    <span class="role-title">TVL Track (ICT) - Animation Strand</span>
+                    <span class="timeline-date">2020 - 2021</span>
+                </div>
+                <p class="company-name">University of Cebu Banilad</p>
+            </div>
+        </section>
+
+        <section id="references">
+            <h2>Professional References</h2>
+            <div class="ref-grid">
+                <div class="ref-card">
+                    <div class="ref-name">Mary Joy Yaun</div>
+                    [span_15](start_span)<div class="ref-title">College of Computer Studies Coordinator[span_15](end_span)</div>
+                    [span_16](start_span)<div class="ref-company">University of Cebu Banilad[span_16](end_span)</div>
+                    <div class="ref-phone">📱 09566437598</div>
+                </div>
+                <div class="ref-card">
+                    <div class="ref-name">Amelia Bunac</div>
+                    [span_17](start_span)<div class="ref-title">Finance Officer[span_17](end_span)</div>
+                    [span_18](start_span)<div class="ref-company">Grantex[span_18](end_span)</div>
+                    <div class="ref-phone">📱 09173220749</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Christine Nicole R. Quiapo. Designed with clean, accessible code structures.</p>
+    </footer>
+
+</body>
+</html>
